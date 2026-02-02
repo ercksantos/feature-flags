@@ -1,7 +1,7 @@
 # Feature Flags System - Sistema de Feature Flags com Rollout Seguro
 
-[![CI](https://github.com/seu-usuario/feature-flags/actions/workflows/ci.yml/badge.svg)](https://github.com/seu-usuario/feature-flags/actions/workflows/ci.yml)
-[![CD Staging](https://github.com/seu-usuario/feature-flags/actions/workflows/cd-staging.yml/badge.svg)](https://github.com/seu-usuario/feature-flags/actions/workflows/cd-staging.yml)
+[![CI](https://github.com/ercksantos/feature-flags/actions/workflows/ci.yml/badge.svg)](https://github.com/ercksantos/feature-flags/actions/workflows/ci.yml)
+[![CD Staging](https://github.com/ercksantos/feature-flags/actions/workflows/cd-staging.yml/badge.svg)](https://github.com/ercksantos/feature-flags/actions/workflows/cd-staging.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Sistema profissional de gerenciamento de feature flags com rollout seguro, construído com Clean Architecture e NestJS.
