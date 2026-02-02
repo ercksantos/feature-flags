@@ -5,14 +5,14 @@ import { CacheService } from './cache.service';
 
 @Global()
 @Module({
-  imports: [ConfigModule],
-  providers: [RedisService, CacheService],
-  exports: [RedisService, CacheService],
+    imports: [ConfigModule],
+    providers: [RedisService, CacheService],
+    exports: [RedisService, CacheService],
 })
 export class RedisModule implements OnModuleDestroy {
-  constructor(private readonly redisService: RedisService) {}
+    constructor(private readonly redisService: RedisService) { }
 
-  async onModuleDestroy(): Promise<void> {
-    await this.redisService.disconnect();
-  }
+    async onModuleDestroy(): Promise<void> {
+        await this.redisService.disconnect();
+    }
 }

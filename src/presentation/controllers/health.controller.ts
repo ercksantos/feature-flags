@@ -16,7 +16,7 @@ export class HealthController {
   constructor(
     private readonly dataSource: DataSource,
     private readonly cacheService: CacheService,
-  ) {}
+  ) { }
 
   @Get()
   check(): HealthCheckResponse {
