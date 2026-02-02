@@ -4,32 +4,32 @@ import request from 'supertest';
 import { AppModule } from '../src/app.module';
 
 describe('AppController (e2e)', () => {
-  let app: INestApplication;
+    let app: INestApplication;
 
-  beforeEach(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
-    }).compile();
+    beforeEach(async () => {
+        const moduleFixture: TestingModule = await Test.createTestingModule({
+            imports: [AppModule],
+        }).compile();
 
-    app = moduleFixture.createNestApplication();
-    await app.init();
-  });
+        app = moduleFixture.createNestApplication();
+        await app.init();
+    });
 
-  afterEach(async () => {
-    await app.close();
-  });
+    afterEach(async () => {
+        await app.close();
+    });
 
-  it('/health (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/health')
-      .expect(200)
-      .expect((res: request.Response) => {
-        expect(res.body).toMatchObject({
-          status: 'healthy',
-          timestamp: expect.any(String),
-          uptime: expect.any(Number),
-          service: 'feature-flags',
-        });
-      });
-  });
+    it('/health (GET)', () => {
+        return request(app.getHttpServer())
+            .get('/health')
+            .expect(200)
+            .expect((res: request.Response) => {
+                expect(res.body).toMatchObject({
+                    status: 'healthy',
+                    timestamp: expect.any(String),
+                    uptime: expect.any(Number),
+                    service: 'feature-flags',
+                });
+            });
+    });
 });
