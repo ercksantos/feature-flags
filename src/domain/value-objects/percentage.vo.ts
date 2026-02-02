@@ -1,35 +1,35 @@
 export class Percentage {
-    private readonly value: number;
+  private readonly value: number;
 
-    private constructor(value: number) {
-        this.value = value;
+  private constructor(value: number) {
+    this.value = value;
+  }
+
+  static create(value: number): Percentage {
+    if (value < 0 || value > 100) {
+      throw new Error('Percentage deve estar entre 0 e 100');
     }
 
-    static create(value: number): Percentage {
-        if (value < 0 || value > 100) {
-            throw new Error('Percentage deve estar entre 0 e 100');
-        }
-
-        if (!Number.isFinite(value)) {
-            throw new Error('Percentage deve ser um número válido');
-        }
-
-        return new Percentage(value);
+    if (!Number.isFinite(value)) {
+      throw new Error('Percentage deve ser um número válido');
     }
 
-    getValue(): number {
-        return this.value;
-    }
+    return new Percentage(value);
+  }
 
-    isZero(): boolean {
-        return this.value === 0;
-    }
+  getValue(): number {
+    return this.value;
+  }
 
-    isFull(): boolean {
-        return this.value === 100;
-    }
+  isZero(): boolean {
+    return this.value === 0;
+  }
 
-    toString(): string {
-        return `${this.value}%`;
-    }
+  isFull(): boolean {
+    return this.value === 100;
+  }
+
+  toString(): string {
+    return `${this.value}%`;
+  }
 }

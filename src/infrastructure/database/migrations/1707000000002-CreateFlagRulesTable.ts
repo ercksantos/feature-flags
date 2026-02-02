@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class CreateFlagRulesTable1707000000002 implements MigrationInterface {
-    name = 'CreateFlagRulesTable1707000000002';
+  name = 'CreateFlagRulesTable1707000000002';
 
-    public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`
             CREATE TABLE "flag_rules" (
                 "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
                 "featureFlagId" uuid NOT NULL,
@@ -21,23 +21,23 @@ export class CreateFlagRulesTable1707000000002 implements MigrationInterface {
             )
         `);
 
-        await queryRunner.query(`
+    await queryRunner.query(`
             CREATE INDEX "IDX_flag_rules_feature_flag_id" ON "flag_rules" ("featureFlagId")
         `);
 
-        await queryRunner.query(`
+    await queryRunner.query(`
             CREATE INDEX "IDX_flag_rules_enabled" ON "flag_rules" ("enabled")
         `);
 
-        await queryRunner.query(`
+    await queryRunner.query(`
             CREATE INDEX "IDX_flag_rules_priority" ON "flag_rules" ("priority")
         `);
-    }
+  }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`DROP INDEX "IDX_flag_rules_priority"`);
-        await queryRunner.query(`DROP INDEX "IDX_flag_rules_enabled"`);
-        await queryRunner.query(`DROP INDEX "IDX_flag_rules_feature_flag_id"`);
-        await queryRunner.query(`DROP TABLE "flag_rules"`);
-    }
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`DROP INDEX "IDX_flag_rules_priority"`);
+    await queryRunner.query(`DROP INDEX "IDX_flag_rules_enabled"`);
+    await queryRunner.query(`DROP INDEX "IDX_flag_rules_feature_flag_id"`);
+    await queryRunner.query(`DROP TABLE "flag_rules"`);
+  }
 }

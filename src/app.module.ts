@@ -8,15 +8,15 @@ import databaseConfig from './infrastructure/config/database.config';
 import redisConfig from './infrastructure/config/redis.config';
 
 @Module({
-    imports: [
-        ConfigModule.forRoot({
-            isGlobal: true,
-            load: [appConfig, databaseConfig, redisConfig],
-            envFilePath: ['.env.local', '.env'],
-        }),
-        LoggingModule,
-        DatabaseModule,
-    ],
-    controllers: [HealthController],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [appConfig, databaseConfig, redisConfig],
+      envFilePath: ['.env.local', '.env'],
+    }),
+    LoggingModule,
+    DatabaseModule,
+  ],
+  controllers: [HealthController],
 })
-export class AppModule { }
+export class AppModule {}

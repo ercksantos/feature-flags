@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class CreateFeatureFlagsTable1707000000001 implements MigrationInterface {
-    name = 'CreateFeatureFlagsTable1707000000001';
+  name = 'CreateFeatureFlagsTable1707000000001';
 
-    public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`
             CREATE TABLE "feature_flags" (
                 "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
                 "key" character varying(100) NOT NULL,
@@ -24,28 +24,28 @@ export class CreateFeatureFlagsTable1707000000001 implements MigrationInterface 
             )
         `);
 
-        await queryRunner.query(`
+    await queryRunner.query(`
             CREATE INDEX "IDX_feature_flags_key" ON "feature_flags" ("key")
         `);
 
-        await queryRunner.query(`
+    await queryRunner.query(`
             CREATE INDEX "IDX_feature_flags_environment" ON "feature_flags" ("environment")
         `);
 
-        await queryRunner.query(`
+    await queryRunner.query(`
             CREATE INDEX "IDX_feature_flags_status" ON "feature_flags" ("status")
         `);
 
-        await queryRunner.query(`
+    await queryRunner.query(`
             CREATE INDEX "IDX_feature_flags_type" ON "feature_flags" ("type")
         `);
-    }
+  }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`DROP INDEX "IDX_feature_flags_type"`);
-        await queryRunner.query(`DROP INDEX "IDX_feature_flags_status"`);
-        await queryRunner.query(`DROP INDEX "IDX_feature_flags_environment"`);
-        await queryRunner.query(`DROP INDEX "IDX_feature_flags_key"`);
-        await queryRunner.query(`DROP TABLE "feature_flags"`);
-    }
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`DROP INDEX "IDX_feature_flags_type"`);
+    await queryRunner.query(`DROP INDEX "IDX_feature_flags_status"`);
+    await queryRunner.query(`DROP INDEX "IDX_feature_flags_environment"`);
+    await queryRunner.query(`DROP INDEX "IDX_feature_flags_key"`);
+    await queryRunner.query(`DROP TABLE "feature_flags"`);
+  }
 }
