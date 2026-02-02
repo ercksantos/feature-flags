@@ -22,7 +22,8 @@
         "migration:generate": "npm run typeorm -- migration:generate",
         "migration:run": "npm run typeorm -- migration:run -d src/infrastructure/database/data-source.ts",
         "migration:revert": "npm run typeorm -- migration:revert -d src/infrastructure/database/data-source.ts",
-        "setup": "docker-compose up -d && npm run migration:run"
+        "seed": "ts-node src/infrastructure/database/seeds/seed.ts",
+        "setup": "docker-compose up -d && sleep 5 && npm run migration:run && npm run seed"
     },
     "dependencies": {
         "@nestjs/common": "^10.3.0",
