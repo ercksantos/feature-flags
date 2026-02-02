@@ -1,0 +1,2 @@
+# Infrastructure Layer - Camada de Infraestrutura
+Implementações concretas (Database, Cache, Queue, HTTP).
