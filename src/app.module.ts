@@ -23,4 +23,4 @@ import redisConfig from './infrastructure/config/redis.config';
   ],
   controllers: [HealthController],
 })
-export class AppModule { }
+export class AppModule {}
